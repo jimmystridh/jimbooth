@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 import sys
 import subprocess
 
 
-PRINTER = 'Canon_CP900_2'
+PRINTER = 'Canon_CP900'
 # PRINTER = 'Brother_HL_2270DW_series'
 # (`lpstat -p`)
 
@@ -16,16 +16,16 @@ class BorkException(Exception):
 
 
 def run(cmd):
-    print "RUN:", cmd
+    print("RUN:", cmd)
     r = subprocess.call(cmd, shell=True)
     if not r == 0:
         raise BorkException()
 
 
 def handle_hook(action, argument=None):
-    print 'action:', action
+    print('action:', action)
     if action == 'download':
-        run("lpr -P {} -o media='{}' {}".format(PRINTER, MEDIA, argument))
+        run("lpr -P {} -o media='{}' {}".format(PRINTER, MEDIA, './photos/rakel.jpg'))
 
 
 if __name__ == '__main__':
