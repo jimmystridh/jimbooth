@@ -25,7 +25,7 @@ def run(cmd):
 def handle_hook(action, argument=None):
     print('action:', action)
     if action == 'download':
-        run("lpr -P {} -o media='{}' {}".format(PRINTER, MEDIA, './photos/rakel.jpg'))
+        run("lpr -P {} -o media='{}' {}".format(PRINTER, MEDIA, argument))
 
 
 if __name__ == '__main__':

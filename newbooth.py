@@ -54,7 +54,7 @@ def booth():
     t = threading.Thread(target=countdown)
     t.start()
 
-    time.sleep(1.2)
+    time.sleep(0.7)
 
     run('killall PTPCamera 2> /dev/null', ignore_errors=True)
 
@@ -63,13 +63,14 @@ def booth():
     ))
 
     run('killall PTPCamera 2> /dev/null', ignore_errors=True)
-    call([f"osascript -e 'set volume output volume {VOLUME}'"], shell=True)
+    #call([f"osascript -e 'set volume output volume {VOLUME}'"], shell=True)
 
     print('done!')
 
 
 if __name__ == '__main__':
-    call([f"osascript -e 'set volume output volume {VOLUME}'"], shell=True)
+    #call([f"osascript -e 'set volume output volume {VOLUME}'"], shell=True)
     with keyboard.Listener(
             on_press=on_press) as listener:
+        print("Ready")
         listener.join()
